@@ -20,7 +20,7 @@ from DAnalyzer import DimensionAnalyzer
 ```
 # Examples 
 
-
+```
 # ===============================================
 # ENTROPY FRAMEWORK - SIMPLIFIED GEMINI INTEGRATION
 # ===============================================
@@ -116,3 +116,4 @@ if __name__ == "__main__":
     
     entropy_framework_demo(demo_questions)
     print("\n✅ DEMO SELESAI - PERBANDINGAN JELAS TERLIHAT")
+```
