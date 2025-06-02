@@ -143,7 +143,7 @@ Silakan fork repo ini, buat branch baru, tambahkan fitur/perbaikan, lalu ajukan 
 
 ### 🛠️ **Kegunaan Praktis Saat Ini**
 1. **Domain-Specialized Output**  
-   - Contoh: Saat AI memilih role **Doctor** untuk pertanyaan medis, output jadi lebih teknis dan akurat  
+   - Contoh: Saat AI memilih role **Doctor** untuk pertanyaan medis, output jadi lebih teknis dan mengurangi resiko halusinasi  
    - **Nilai**: Meningkatkan relevansi respons 40-60% dibanding AI generik
 
 2. **Resource Optimization**  
