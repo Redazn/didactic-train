@@ -3,7 +3,7 @@
 # how to use?
 ```
 git clone https://github.com/Redazn/didac-train.git
-cd entropy-utility-framework
+cd dictactic-train
 pip install -r requirements.txt
 python main.py
 ```
