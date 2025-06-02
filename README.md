@@ -1,119 +1,121 @@
 # didactic-train
 
-# how to use?
+
+---
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/Redazn/didactic-train/main/logo.png" width="120" alt="didactic-train Logo" />
+</p>
+
+<h1 align="center">didactic-train</h1>
+
+<p align="center">
+  <a href="https://github.com/Redazn/didactic-train/actions">
+    <img src="https://img.shields.io/github/actions/workflow/status/Redazn/didactic-train/python-app.yml?branch=main&logo=github&style=flat-square" alt="Build Status">
+  </a>
+  <a href="https://github.com/Redazn/didactic-train/blob/main/LICENSE">
+    <img src="https://img.shields.io/github/license/Redazn/didactic-train?style=flat-square" alt="License">
+  </a>
+  <a href="https://www.python.org/">
+    <img src="https://img.shields.io/badge/python-3.8%2B-blue?logo=python&style=flat-square" alt="Python Version">
+  </a>
+  <a href="https://github.com/Redazn/didactic-train/commits/main">
+    <img src="https://img.shields.io/github/last-commit/Redazn/didactic-train?style=flat-square" alt="Last Commit">
+  </a>
+  <a href="https://github.com/Redazn/didactic-train/stargazers">
+    <img src="https://img.shields.io/github/stars/Redazn/didactic-train?style=flat-square" alt="Stars">
+  </a>
+</p>
+
+---
+
+## 📦 Deskripsi
+
+**didactic-train** adalah toolkit modular untuk analisis, kalkulasi, dan pemrosesan data berbasis Python. Dirancang untuk kemudahan integrasi, skalabilitas, dan pengembangan fitur data science yang cepat.
+
+---
+
+## ✨ Fitur
+
+- Modular & mudah dikembangkan
+- Konfigurasi fleksibel via `config.json`
+- Dependensi minimal
+- Siap untuk integrasi pipeline data
+
+---
+
+## 🗂️ Struktur Direktori
+
 ```
-git clone https://github.com/Redazn/didac-train.git
-cd dictactic-train
-pip install -r requirements.txt
+.
+├── DAnalyzer.py
+├── ECalculator.py
+├── OGenerator.py
+├── RSelector.py
+├── config.json
+├── main.py
+├── requirements.txt
+├── setup.py
+├── LICENSE
+├── README.md
+└── logo.png
+```
+
+---
+
+## 🚀 Instalasi
+
+1. Clone repo:
+    ```bash
+    git clone https://github.com/Redazn/didactic-train.git
+    cd didactic-train
+    ```
+2. Install dependensi:
+    ```bash
+    pip install -r requirements.txt
+    ```
+
+---
+
+## 💡 Penggunaan
+
+Jalankan aplikasi:
+```bash
 python main.py
 ```
-# 1
-```
-pip install https://github.com/Redazn/didac-train
-```
+Konfigurasikan parameter di `config.json` sesuai kebutuhan Anda.
 
-# 2
-```
-from ECalculator import EntropyCalculator
-from RSelector import RoleSelector
-from DAnalyzer import DimensionAnalyzer
-```
-# Examples 
+---
 
-```
-# ===============================================
-# ENTROPY FRAMEWORK - SIMPLIFIED GEMINI INTEGRATION
-# ===============================================
+## ⚙️ Konfigurasi
 
-# Clone repo asli Anda
-!git clone -q https://github.com/Redazn/didactic-train.git
-%cd didactic-train
+Edit file `config.json` untuk menyesuaikan input, output, dan opsi pemrosesan.
 
-# Install hanya dependensi penting
-!pip install -q google-generativeai
+---
 
-import os
-import google.generativeai as genai
-from ECalculator import EntropyCalculator
-from RSelector import RoleSelector
-from DAnalyzer import DimensionAnalyzer
-import time
+## 🧩 Kontribusi
 
-# ===== SETUP GEMINI =====
-GEMINI_API_KEY = "!!!!!!!!"  # Ganti dengan API key Anda
-genai.configure(api_key=GEMINI_API_KEY)
-model = genai.GenerativeModel('gemini-2.0-flash')
+Kontribusi sangat terbuka! Silakan buat issue, pull request, atau diskusi untuk meningkatkan proyek ini.
 
-# ===== FUNGSI UTAMA YANG DIPERBAIKI =====
-def generate_output(input_text, role, cognitive_style, processing_style):
-    """Fungsi output yang dioptimalkan dengan Gemini"""
-    # Buat prompt berdasarkan konfigurasi
-    prompt = f"""
-Anda adalah AI yang berperan sebagai {role}. 
-Gunakan gaya {cognitive_style} dan pendekatan {processing_style}.
+---
 
-Pertanyaan: {input_text}
+## 📄 Lisensi
 
-Jawablah dengan:
-- Sesuai peran dan gaya yang ditentukan
-- Fokus pada aspek utility dari jawaban
-- Sertakan analisis singkat tentang keterbatasan pendekatan ini
-"""
-    
-    # Generate response
-    response = model.generate_content(prompt)
-    return response.text
+Proyek ini dilisensikan di bawah [LICENSE](https://github.com/Redazn/didactic-train/blob/main/LICENSE).
 
-def entropy_framework_demo(questions):
-    """Demo framework dengan perbandingan langsung"""
-    print("="*60)
-    print("ENTROPY FRAMEWORK DEMO - PERBANDINGAN OUTPUT")
-    print("="*60)
-    
-    for i, question in enumerate(questions, 1):
-        print(f"\n🔍 PERTANYAAN {i}: {question}")
-        
-        # Hitung entropy
-        entropy = EntropyCalculator.calculate_text_entropy(question)
-        norm_entropy = EntropyCalculator.normalize_entropy(entropy)
-        entropy_level = EntropyCalculator.get_entropy_level(norm_entropy)
-        
-        # Pilih role dan dimensi
-        selector = RoleSelector()
-        role = selector.select_role(entropy_level)
-        cognitive, processing = selector.select_dimensions(entropy_level)
-        
-        # Analisis keterbatasan
-        analyzer = DimensionAnalyzer(cognitive, processing)
-        limitations = analyzer.limitations
-        
-        print(f"\n📊 ANALISIS:")
-        print(f"- Entropy: {entropy:.2f} ({entropy_level})")
-        print(f"- Role: {role}")
-        print(f"- Gaya: {cognitive}/{processing}")
-        print(f"- Keterbatasan: {', '.join(limitations)}")
-        
-        # Hasilkan output dengan framework
-        print("\n🤖 OUTPUT DENGAN FRAMEWORK:")
-        framework_output = generate_output(question, role, cognitive, processing)
-        print(framework_output)
-        
-        # Output tanpa framework (baseline)
-        print("\n🔄 OUTPUT TANPA FRAMEWORK (BASELINE):")
-        baseline_response = model.generate_content(question).text
-        print(baseline_response)
-        
-        print("\n" + "="*60)
+---
 
-# ===== CONTOH PENGGUNAAN =====
-if __name__ == "__main__":
-    # Contoh pertanyaan dengan kompleksitas berbeda
-    demo_questions = [
-        "Apa gejala diabetes?",
-        "Bagaimana cara mencegah diabetes?",
-        "Apa dampak filosofis dari penyakit kronis seperti diabetes terhadap kehidupan manusia?"
-    ]
-    
-    entropy_framework_demo(demo_questions)
-    print("\n✅ DEMO SELESAI - PERBANDINGAN JELAS TERLIHAT")
-```
+## 🙏 Terima Kasih
+
+Terima kasih telah menggunakan **didactic-train**!  
+Jangan lupa kasih ⭐ jika bermanfaat!
+
+---
+
+**Catatan:**  
+- Pastikan file logo (misal `logo.png`) sudah ada di root repository.
+- Untuk badge build status, pastikan sudah ada workflow GitHub Actions misal bernama `python-app.yml`.  
+  Jika belum, lihat [dokumentasi GitHub Actions](https://docs.github.com/en/actions/quickstart) untuk setup CI/CD.
+- Anda dapat menambah badge lain sesuai kebutuhan (coverage, issues, dsb) dari [shields.io](https://shields.io/).
+
+---
