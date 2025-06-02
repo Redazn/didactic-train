@@ -22,7 +22,7 @@ class OutputGenerator:
         style_context = {
             "Analytical": "Gunakan pendekatan logis dan berbasis data",
             "Emotive": "Sertakan pertimbangan emosional dan empati",
-            "Structured": "Beri respons terstruktur dan sistematis",
+            "Structured": "Respons terstruktur dan sistematis (step by step)",
             "Exploratory": "Eksplorasi berbagai kemungkinan kreatif"
         }
         
