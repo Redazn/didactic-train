@@ -109,7 +109,7 @@ File ini berisi pengaturan urutan dan parameter untuk setiap modul (bagian/fungs
 
 ## 🧑‍💻 Contoh Penggunaan Lengkap: `examples.py`
 
-File ini sangat cocok untuk pemula karena:
+untuk contoh penggunaan lengkap:
 
 - Menunjukkan langkah demi langkah penggunaan framework
 - Semua kode sudah diberi penjelasan dan dapat langsung dijalankan (misal di Google Colab/Jupyter Notebook)
