@@ -137,7 +137,7 @@ Silakan fork repo ini, buat branch baru, tambahkan fitur/perbaikan, lalu ajukan 
 ---
 
 
-### 🛠️ **Kegunaan dam fungsi framework ini**
+### 🛠️ **Kegunaan dan fungsi framework ini**
 
 ---
 
