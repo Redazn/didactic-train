@@ -1,4 +1,4 @@
-# didactic-train
+<h1 align="center"><strong>Didactic Train</strong></h1>
 
 ---
 
