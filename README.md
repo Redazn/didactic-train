@@ -3,11 +3,10 @@
 
 ---
 
+
 <p align="center">
   <img src="https://raw.githubusercontent.com/Redazn/didactic-train/main/logo.png" width="120" alt="didactic-train Logo" />
 </p>
-
-<h1 align="center">didactic-train</h1>
 
 <p align="center">
   <a href="https://github.com/Redazn/didactic-train/actions">
@@ -31,16 +30,16 @@
 
 ## 📦 Deskripsi
 
-**didactic-train** adalah toolkit modular untuk analisis, kalkulasi, dan pemrosesan data berbasis Python. Dirancang untuk kemudahan integrasi, skalabilitas, dan pengembangan fitur data science yang cepat.
+**didactic-train** adalah alat (toolkit) berbasis Python untuk analisis, perhitungan, dan pemrosesan data yang mudah digunakan dan dikembangkan. Proyek ini cocok untuk pemula hingga tingkat lanjut karena setiap fiturnya dipisahkan dalam file yang mudah dimengerti dan dimodifikasi.
 
 ---
 
 ## ✨ Fitur
 
-- Modular & mudah dikembangkan
-- Konfigurasi fleksibel via `config.json`
+- Mudah dikembangkan (modular)
+- Pengaturan fleksibel lewat `config.json`
 - Dependensi minimal
-- Siap untuk integrasi pipeline data
+- Siap diintegrasikan dengan proses analisis data lain
 
 ---
 
@@ -58,44 +57,88 @@
 ├── setup.py
 ├── LICENSE
 ├── README.md
-└── logo.png
+├── logo.png
+└── examples.py
 ```
 
 ---
 
 ## 🚀 Instalasi
 
-1. Clone repo:
+1. **Clone repo:**
     ```bash
     git clone https://github.com/Redazn/didactic-train.git
     cd didactic-train
     ```
-2. Install dependensi:
+2. **Install dependensi:**
     ```bash
     pip install -r requirements.txt
     ```
 
 ---
 
-## 💡 Penggunaan
+## 💡 Penggunaan Dasar
 
-Jalankan aplikasi:
+Jalankan aplikasi utama:
 ```bash
 python main.py
 ```
-Konfigurasikan parameter di `config.json` sesuai kebutuhan Anda.
+Anda dapat mengubah proses dan pengaturan lewat file `config.json`.
 
 ---
 
-## ⚙️ Konfigurasi
+## ⚙️ Konfigurasi (`config.json`)
 
-Edit file `config.json` untuk menyesuaikan input, output, dan opsi pemrosesan.
+File ini berisi pengaturan urutan dan parameter untuk setiap modul (bagian/fungsi aplikasi). Contoh:
+
+```json
+{
+  "pipeline": ["DAnalyzer", "ECalculator", "OGenerator"],
+  "DAnalyzer": {
+    "input_file": "data/input.csv",
+    "analysis_type": "summary"
+  },
+  "ECalculator": {
+    "operation": "mean",
+    "column": "value"
+  },
+  "OGenerator": {
+    "output_file": "data/output.json",
+    "format": "json"
+  }
+}
+```
+- **pipeline** = urutan modul yang dijalankan
+- **DAnalyzer, ECalculator, OGenerator** = pengaturan masing-masing modul
+
+---
+
+## 🧑‍💻 Contoh Penggunaan Lengkap: `examples.py`
+
+File ini sangat cocok untuk pemula karena:
+
+- Menunjukkan langkah demi langkah penggunaan framework
+- Semua kode sudah diberi penjelasan dan dapat langsung dijalankan (misal di Google Colab/Jupyter Notebook)
+- Membandingkan hasil jawaban AI dengan dan tanpa framework
+
+### Isi File [examples.py](https://github.com/Redazn/didactic-train/blob/main/examples.py):
+
+
+---
+
+### Cara Menjalankan Contoh (`examples.py`):
+
+1. **Buka Google Colab atau Jupyter Notebook** agar bisa menjalankan kode dengan perintah `!` dan `%`.
+2. **Masukkan API Key Gemini** pada bagian `GEMINI_API_KEY = "!!!!!!!!"`.
+3. **Jalankan satu per satu** kode dalam contoh, atau jalankan seluruh script.
+4. **Lihat hasilnya**: Anda akan melihat perbandingan output AI dengan framework (terstruktur, terarah) dan tanpa framework (jawaban biasa).
 
 ---
 
 ## 🧩 Kontribusi
 
-Kontribusi sangat terbuka! Silakan buat issue, pull request, atau diskusi untuk meningkatkan proyek ini.
+Kontribusi sangat terbuka!  
+Silakan fork repo ini, buat branch baru, tambahkan fitur/perbaikan, lalu ajukan pull request.
 
 ---
 
@@ -112,10 +155,3 @@ Jangan lupa kasih ⭐ jika bermanfaat!
 
 ---
 
-**Catatan:**  
-- Pastikan file logo (misal `logo.png`) sudah ada di root repository.
-- Untuk badge build status, pastikan sudah ada workflow GitHub Actions misal bernama `python-app.yml`.  
-  Jika belum, lihat [dokumentasi GitHub Actions](https://docs.github.com/en/actions/quickstart) untuk setup CI/CD.
-- Anda dapat menambah badge lain sesuai kebutuhan (coverage, issues, dsb) dari [shields.io](https://shields.io/).
-
----
