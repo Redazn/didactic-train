@@ -23,7 +23,7 @@ class OutputGenerator:
             "Analytical": "Gunakan pendekatan logis dan berbasis data",
             "Emotive": "Sertakan pertimbangan emosional dan empati",
             "Structured": "Respons terstruktur dan sistematis (step by step)",
-            "Exploratory": "Eksplorasi berbagai kemungkinan kreatif"
+            "Exploratory": "Eksplorasi berbagai kemungkinan kreatif(probability)"
         }
         
         prompt = f"{role_context[self.role]}. {style_context[self.cognitive_style]}. "
