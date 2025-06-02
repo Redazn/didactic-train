@@ -1,9 +1,9 @@
 ############ CONTOH PENGGUNAAN ###########
 
 ```
-# ===========================================
+# ========================================
 # ENTROPY FRAMEWORK - SIMPLIFIED GEMINI INTEGRATION
-# ===========================================
+# ========================================
 
 # Clone repo asli Anda
 !git clone -q https://github.com/Redazn/didactic-train.git
