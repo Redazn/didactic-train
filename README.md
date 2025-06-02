@@ -142,6 +142,38 @@ Silakan fork repo ini, buat branch baru, tambahkan fitur/perbaikan, lalu ajukan 
 
 ---
 
+
+📘 FAQ
+
+❓ Apa itu entropy dalam konteks proyek ini?
+
+Entropy mengukur ketidakpastian dari informasi. Semakin tinggi entropy, semakin sulit diprediksi — dan semakin penting untuk dianalisis sebelum membuat keputusan.
+
+❓ Bagaimana utility digunakan?
+
+Utility dipakai untuk menilai seberapa bermanfaat atau optimal suatu tindakan dibandingkan alternatif lain. Cocok untuk simulasi keputusan atau seleksi strategi.
+
+❓ Bisa dipakai untuk AI agent atau chatbot?
+
+Sangat bisa. Framework ini bisa menjadi otak back-end dari agent berbasis reasoning atau decision-making pipeline, termasuk untuk RAG, edukasi medis, atau sistem rekomendasi.
+
+❓ Apakah bisa dipakai untuk edukasi atau demo akademik?
+
+Ya. Proyek ini bisa digunakan untuk mengajarkan konsep entropy dan utility kepada mahasiswa teknik, informatika, hingga logistik.
+
+❓ Apa rencana ke depan?
+
+Integrasi dengan data real-time
+
+Visualisasi entropy map
+
+Plugin NLP dan RAG
+
+GUI interaktif
+
+
+---
+
 ## 📄 Lisensi
 
 Proyek ini dilisensikan di bawah [LICENSE](https://github.com/Redazn/didactic-train/blob/main/LICENSE).
