@@ -1,12 +1,6 @@
-# didactic-train
-
+### **didactic-train**
 
 ---
-
-
-<p align="center">
-  <img src="https://raw.githubusercontent.com/Redazn/didactic-train/main/logo.png" width="120" alt="didactic-train Logo" />
-</p>
 
 <p align="center">
   <a href="https://github.com/Redazn/didactic-train/actions">
