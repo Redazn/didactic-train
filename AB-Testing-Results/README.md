@@ -37,8 +37,9 @@
 - **Version:** v0.1.0-beta
 - **Description:** [What changed - specific details]
 - **Key Changes:**
-  - Change 1: [Description]
-  - Change 2: [Description]
+  - Change 1: [**Stateful memory** ]
+  - Change 2: [**Meta-cognition loop**]
+  - Change 3: [**Cross-modal integration**]
 - **Screenshot/Mockup:** [Link or embedded image]
 - **Release Date:** [When test variant was deployed]
 
