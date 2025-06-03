@@ -171,7 +171,7 @@ Silakan fork repo ini, buat branch baru, tambahkan fitur/perbaikan, lalu ajukan 
 
 ##  Lisensi
 
-Proyek ini berlisensi yang memungkinkan penggunaan memodifikasi dan distribusi bebas, termasuk untuk keperluan edukasi, penelitian dan hobby, selama syarat Lisensi terpenuhi [LICENSE](https://github.com/Redazn/didactic-train/blob/main/LICENSE)
+Proyek ini berlisensi yang memungkinkan pengguna untuk memodifikasi dan distribusi bebas, termasuk dalam keperluan edukasi, penelitian dan hobby, selama syarat Lisensi terpenuhi [LICENSE](https://github.com/Redazn/didactic-train/blob/main/LICENSE)
 
 ---
 
