@@ -30,8 +30,8 @@
 #### **Control (A) - Basic**
 - **Version:** v0.1.0
 - **Description:** Current/existing implementation
-- **Screenshot/Mockup:** [Link or embedded image]
-- **Release Date:** [When this version was deployed]
+- **Screenshot/Mockup:** [https://github.com/Redazn/didactic-train/blob/main/AB-Testing-Results%2FV-010-Beta.json]
+- **Results Date:** [2/june/2025]
 
 #### **Treatment (B) - Dictactic-train**
 - **Version:** v0.1.0-beta
@@ -42,7 +42,7 @@
   - Change 3: [**Cross-modal integration**]
 - **Screenshot/Mockup:** [[V-010-Beta.py](https://github.com/Redazn/didactic-train/blob/main/AB-Testing-Results%2FV-010-Beta.json):
 ]
-- **Release Date:** [2/june/2025]
+- **Results Date:** [2/june/2025]
 
 ## Implementation Details
 
