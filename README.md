@@ -22,13 +22,13 @@
 
 ---
 
-## 📦 Deskripsi
+##  Deskripsi
 
 **didactic-train** adalah alat (toolkit) berbasis Python untuk analisis, perhitungan, dan pemrosesan data yang mudah digunakan dan dikembangkan. Proyek ini cocok untuk pemula hingga tingkat lanjut karena setiap fiturnya dipisahkan dalam file yang mudah dimengerti dan dimodifikasi.
 
 ---
 
-## ✨ Fitur
+##  Fitur
 
 - Mudah dikembangkan (modular)
 - Pengaturan fleksibel lewat `config.json`
@@ -37,7 +37,7 @@
 
 ---
 
-## 🗂️ Struktur Direktori
+##  Struktur Direktori
 
 ```
 .
@@ -57,7 +57,7 @@
 
 ---
 
-## 🚀 Instalasi
+##  Instalasi
 
 1. **Clone repo:**
     ```bash
@@ -71,7 +71,7 @@
 
 ---
 
-## 💡 Penggunaan Dasar
+##  Penggunaan Dasar
 
 Jalankan aplikasi utama:
 ```bash
@@ -81,7 +81,7 @@ Anda dapat mengubah proses dan pengaturan lewat file `config.json`.
 
 ---
 
-## ⚙️ Konfigurasi (`config.json`)
+##  Konfigurasi (`config.json`)
 
 File ini berisi pengaturan urutan dan parameter untuk setiap modul (bagian/fungsi aplikasi). Contoh:
 
@@ -107,7 +107,7 @@ File ini berisi pengaturan urutan dan parameter untuk setiap modul (bagian/fungs
 
 ---
 
-## 🧑‍💻 Contoh Penggunaan Lengkap: `examples.py`
+##  Contoh Penggunaan Lengkap: `examples.py`
 
 untuk contoh penggunaan lengkap:
 
@@ -129,7 +129,7 @@ untuk contoh penggunaan lengkap:
 
 ---
 
-## 🧩 Kontribusi
+##  Kontribusi
 
 Kontribusi sangat terbuka!  
 Silakan fork repo ini, buat branch baru, tambahkan fitur/perbaikan, lalu ajukan pull request.
@@ -137,7 +137,7 @@ Silakan fork repo ini, buat branch baru, tambahkan fitur/perbaikan, lalu ajukan 
 ---
 
 
-### 🛠️ **Kegunaan dan fungsi framework ini**
+###  **Kegunaan dan fungsi framework ini**
 
 ---
 
@@ -169,13 +169,14 @@ Silakan fork repo ini, buat branch baru, tambahkan fitur/perbaikan, lalu ajukan 
 
 ---
 
-## 📄 Lisensi
+##  Lisensi
 
-Proyek ini dilisensikan di bawah [LICENSE](https://github.com/Redazn/didactic-train/blob/main/LICENSE).
+Harap Dibaca,
+Proyek ini dilisensikan di bawah [LICENSE](https://github.com/Redazn/didactic-train/blob/main/LICENSE)
 
 ---
 
-## 🙏 Terima Kasih
+##  Terima Kasih
 
 Terima kasih telah menggunakan **didactic-train**!  
 Jangan lupa kasih ⭐ jika bermanfaat!
