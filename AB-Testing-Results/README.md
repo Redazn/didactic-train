@@ -10,8 +10,8 @@
 
 ## Test Details
 
-### **Hypothesis**
-**Primary Hypothesis:** We believe that [change description] will result in [expected outcome] because [reasoning based on data/research]
+### **Latar belakang**
+**Deskripsi:** We believe that [change description] will result in [expected outcome] because [reasoning based on data/research]
 
 **Success Metrics:**
 - Primary: [Main KPI to measure]
@@ -43,13 +43,6 @@
 - **Release Date:** [When test variant was deployed]
 
 ## Implementation Details
-
-### **Target Audience**
-- **Inclusion Criteria:** [Who gets included in test]
-- **Exclusion Criteria:** [Who gets excluded]
-- **Geographic:** [Regions/countries]
-- **Device/Platform:** [Mobile/Desktop/Both]
-- **User Segments:** [New users/Returning/Premium, etc.]
 
 ### **Technical Setup**
 - **Testing Platform:** [Google Optimize/Optimizely/Custom/etc.]
