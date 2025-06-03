@@ -27,13 +27,13 @@
 
 ### **Variants**
 
-#### **Control (A) - Basic**
+#### **No Train (A) - Basic**
 - **Version:** v0.1.0
 - **Description:** Current/existing implementation
-- **Screenshot/Mockup:** [[V-010-Beta.py]https://github.com/Redazn/didactic-train/blob/main/AB-Testing-Results%2FV-010-Beta.json]
+- **Screenshot/Mockup:** [[V-010-Beta.py](https://github.com/Redazn/didactic-train/blob/main/AB-Testing-Results%2FV-010-Beta.json)]
 - **Results Date:** [2/june/2025]
 
-#### **Treatment (B) - Dictactic-train**
+#### **With Train (B) - Dictactic-train**
 - **Version:** v0.1.0-beta
 - **Description:** [This framework proves that **AI can have a dynamic "personality"** - not just a monotone chatbot]
 - **Key Changes:**
