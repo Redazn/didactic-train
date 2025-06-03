@@ -35,7 +35,7 @@
 
 #### **Treatment (B) - Dictactic-train**
 - **Version:** v0.1.0-beta
-- **Description:** [What changed - specific details]
+- **Description:** [This framework proves that **AI can have a dynamic "personality"** - not just a monotone chatbot]
 - **Key Changes:**
   - Change 1: [**Stateful memory** ]
   - Change 2: [**Meta-cognition loop**]
