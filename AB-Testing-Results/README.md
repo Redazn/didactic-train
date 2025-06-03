@@ -27,14 +27,14 @@
 
 ### **Variants**
 
-#### **Control (A) - Baseline**
-- **Version:** v1.0.0
+#### **Control (A) - Basic**
+- **Version:** v0.1.0
 - **Description:** Current/existing implementation
 - **Screenshot/Mockup:** [Link or embedded image]
 - **Release Date:** [When this version was deployed]
 
-#### **Treatment (B) - Test Variant**
-- **Version:** v1.1.0-beta
+#### **Treatment (B) - Dictactic-train**
+- **Version:** v0.1.0-beta
 - **Description:** [What changed - specific details]
 - **Key Changes:**
   - Change 1: [Description]
