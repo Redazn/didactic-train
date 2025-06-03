@@ -41,7 +41,7 @@
   - Change 2: [**Meta-cognition loop**]
   - Change 3: [**Cross-modal integration**]
 - **Screenshot/Mockup:** [Link or embedded image]
-- **Release Date:** [When test variant was deployed]
+- **Release Date:** [2/june/2025]
 
 ## Implementation Details
 
