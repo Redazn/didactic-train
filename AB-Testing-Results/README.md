@@ -2,8 +2,8 @@
 
 ## Test Overview
 - **Name Framework:** [Dictactic-train] A/B Test
-- **Test Version:** V0.1.0_[Beta]
-- **Status:** ✅ Completed / 🔄 Running / ⏸️ Paused
+- **Test Version:** v0.1.0_[Beta]
+- **Status:** Completed
 - **Owner:** [Muhammad Dimas Prabowo]
 - **Created:** [3/june/2025]
 - **Last Updated:** [3/june/2025]
