@@ -30,7 +30,7 @@
 #### **Control (A) - Basic**
 - **Version:** v0.1.0
 - **Description:** Current/existing implementation
-- **Screenshot/Mockup:** [https://github.com/Redazn/didactic-train/blob/main/AB-Testing-Results%2FV-010-Beta.json]
+- **Screenshot/Mockup:** [[V-010-Beta.py]https://github.com/Redazn/didactic-train/blob/main/AB-Testing-Results%2FV-010-Beta.json]
 - **Results Date:** [2/june/2025]
 
 #### **Treatment (B) - Dictactic-train**
