@@ -1,8 +1,8 @@
 # A/B Testing Documentation
 
 ## Test Overview
-- **Test Name:** [Feature/Page Name] A/B Test
-- **Test ID:** AB_001_[YYYY]
+- **Name Framework:** [Dictactic-train] A/B Test
+- **Test Version:** V0.1.0_[Beta]
 - **Status:** ✅ Completed / 🔄 Running / ⏸️ Paused
 - **Owner:** [Muhammad Dimas Prabowo]
 - **Created:** [3/june/2025]
