@@ -4,9 +4,9 @@
 - **Test Name:** [Feature/Page Name] A/B Test
 - **Test ID:** AB_001_[YYYY]
 - **Status:** ✅ Completed / 🔄 Running / ⏸️ Paused
-- **Owner:** [Team/Person responsible]
-- **Created:** [Date]
-- **Last Updated:** [Date]
+- **Owner:** [Muhammad Dimas Prabowo]
+- **Created:** [3/june/2025]
+- **Last Updated:** [3/june/2025]
 
 ## Test Details
 
