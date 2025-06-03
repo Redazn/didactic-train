@@ -40,7 +40,7 @@
   - Change 1: [**Stateful memory** ]
   - Change 2: [**Meta-cognition loop**]
   - Change 3: [**Cross-modal integration**]
-- **Screenshot/Mockup:** [[V-010-Beta.py](https://github.com/Redazn/didactic-train/blob/main/AB-Testing-Results/V-010-Beta.py):
+- **Screenshot/Mockup:** [[V-010-Beta.py](https://github.com/Redazn/didactic-train/blob/main/AB-Testing-Results%2FV-010-Beta.json):
 ]
 - **Release Date:** [2/june/2025]
 
