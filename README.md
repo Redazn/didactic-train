@@ -176,16 +176,13 @@ Proyek ini berlisensi yang memungkinkan pengguna untuk memodifikasi dan distribu
 ---
 
 ##  Supported AI & Frameworks
-
-| Framework       | Model |
-|-----------------|--------|
-| Ollama          | ![Ollama](https://img.shields.io/badge/Ollama-121212?style=flat&logoColor=white) |
-| Llama.cpp       | ![llama.cpp](https://img.shields.io/badge/Llama.cpp-000000?style=flat&logoColor=white) |
-| Transformers    | ![Transformers](https://img.shields.io/badge/Transformers-FFBF00?style=flat&logo=huggingface&logoColor=black) |
-| Gemini (Google) | ![Gemini](https://img.shields.io/badge/Gemini-4285F4?style=flat&logo=google&logoColor=white) |
-| OpenAI          | ![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat&logo=openai&logoColor=white) |
-| Microsoft       | ![Microsoft](https://img.shields.io/badge/Microsoft-A4C639?style=flat&logo=microsoft&logoColor=white) |
-| LangChain       | ![LangChain](https://img.shields.io/badge/LangChain-00B15F?style=flat&logo=chainlink&logoColor=white) |
+![Ollama](https://img.shields.io/badge/Ollama-121212?style=flat&logoColor=white) 
+![Llama.cpp](https://img.shields.io/badge/Llama.cpp-000000?style=flat&logoColor=white) 
+![Transformers](https://img.shields.io/badge/Transformers-FFBF00?style=flat&logo=huggingface&logoColor=black) 
+![Gemini](https://img.shields.io/badge/Gemini-4285F4?style=flat&logo=google&logoColor=white) 
+![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat&logo=openai&logoColor=white) 
+![Microsoft](https://img.shields.io/badge/Microsoft-A4C639?style=flat&logo=microsoft&logoColor=white) 
+![LangChain](https://img.shields.io/badge/LangChain-00B15F?style=flat&logo=chainlink&logoColor=white)
 
 ---
 
