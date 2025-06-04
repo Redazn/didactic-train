@@ -1,4 +1,3 @@
 numpy
 scipy 
 spacy
-id_core_news_sm
