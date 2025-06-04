@@ -3,7 +3,7 @@ import random
 import numpy as np
 
 class RoleSelector:
-    def __init__(self):
+    def __init__(self, input_text):
         with open('config.json') as f:
             self.config = json.load(f)
     
