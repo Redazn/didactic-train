@@ -1,15 +1,14 @@
-import os
 from UncertaintyAnalyzer import UncertaintyAnalyzer
 
 class OutputGenerator:
+    """Modular output generator framework"""
     def __init__(self, role, cognitive_style, processing_style):
         self.role = role
         self.cognitive_style = cognitive_style
         self.processing_style = processing_style
-        
- 
-    def generate_prompt(self, input_text):
-        """Generate system prompt untuk Gemini"""
+    
+    def create_prompt(self, input_text):
+        """Create standardized prompt template"""
         role_context = {
             "Governance": "Anda adalah pakar tata kelola dan kebijakan publik",
             "Artist": "Anda adalah seniman kreatif",
@@ -28,71 +27,41 @@ class OutputGenerator:
             "Exploratory": "Eksplorasi berbagai kemungkinan dan perspektif"
         }
         
-        system_prompt = f"""{role_context[self.role]}
+        return f"""{role_context.get(self.role, 'Anda adalah asisten AI')}
 
 GAYA RESPONS:
-- {style_context[self.cognitive_style]}
-- {style_context[self.processing_style]}
+- {style_context.get(self.cognitive_style, 'Gunakan pendekatan logis')}
+- {style_context.get(self.processing_style, 'Berikan respons yang informatif')}
 
 Pertanyaan: {input_text}
 
 Jawablah dalam bahasa Indonesia yang natural dan:
 1. Berikan jawaban utama yang informatif
-2. Akhiri dengan analisis ketidakpastian dan permintaan klarifikasi jika perlu
+2. Akhiri dengan analisis ketidakpastian jika perlu
 """
+    
+    def generate_output(self, input_text, model_generator):
+        """
+        Generate output using external model generator
         
-        return system_prompt
+        Parameters:
+        input_text (str): User input
+        model_generator (callable): Function that takes prompt and returns response
         
-    def generate_output(self, input_text):
-        """Generate output menggunakan Gemini atau fallback"""
-        # Analisis ketidakpastian
+        Returns:
+        str: Complete output with uncertainty analysis
+        """
+        # Create prompt
+        prompt = self.create_prompt(input_text)
+        
+        # Generate response using external model
+        try:
+            response = model_generator(prompt)
+        except Exception as e:
+            response = f"⚠️ Error in model generation: {str(e)}"
+        
+        # Add uncertainty analysis
         uncertainty_analyzer = UncertaintyAnalyzer(input_text)
         uncertainty_report = uncertainty_analyzer.get_uncertainty_report()
         
-        if self.use_generator:
-            try:
-                prompt = self.generate_prompt(input_text)
-                response = self.model.generate_content(
-                    prompt,
-                    generation_config=self.generation_config
-                )
-                
-                if response.candidates and response.candidates[0].content.parts:
-                    output = response.candidates[0].content.parts[0].text.strip()
-                    return f"{output}\n\n{uncertainty_report}"
-                else:
-                    return f"Maaf, tidak dapat menghasilkan respons.\n\n{uncertainty_report}"
-                    
-            except Exception as e:
-                print(f"⚠️ Gemini API Error: {e}")
-                return self._fallback_response(input_text, uncertainty_report)
-        else:
-            return self._fallback_response(input_text, uncertainty_report)
-    
-    def _fallback_response(self, input_text, uncertainty_report):
-        """Fallback responses jika Gemini tidak tersedia"""
-        responses = {
-            "Governance": f"Sebagai pakar tata kelola, saya akan menganalisis '{input_text}'...",
-            "Artist": f"Dari sudut pandang artistik, '{input_text}'...",
-            "Doctor": f"Secara medis, pertanyaan tentang '{input_text}'...",
-            "Teacher": f"Sebagai pendidik, saya akan menjelaskan '{input_text}'...",
-            "Philosopher": f"Pertanyaan '{input_text}' membawa kita pada refleksi...",
-            "Engineer": f"Dari perspektif teknis, '{input_text}'...",
-            "Scientific": f"Berdasarkan pendekatan ilmiah, '{input_text}'...",
-            "Assistance": f"Saya akan membantu menjawab '{input_text}'..."
-        }
-        
-        base_response = responses.get(self.role, f"Terima kasih atas pertanyaan tentang '{input_text}'.")
-        
-        # Add style-specific elements
-        if self.cognitive_style == 'Analytical':
-            base_response += " Mari kita analisis secara sistematis."
-        elif self.cognitive_style == 'Emotive':
-            base_response += " Mari kita pertimbangkan aspek emosionalnya."
-            
-        if self.processing_style == 'Structured':
-            base_response += " Saya akan menyajikan informasi secara terstruktur."
-        elif self.processing_style == 'Exploratory':
-            base_response += " Mari kita eksplorasi berbagai kemungkinan."
-            
-        return f"{base_response}\n\n{uncertainty_report}"
+        return f"{response}\n\n{uncertainty_report}"
