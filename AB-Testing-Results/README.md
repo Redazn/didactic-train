@@ -62,10 +62,10 @@ v1.1.0 (Winner)      - Target Release: [Date]
 ## Data Collection
 
 ### **Baseline generic**
-| Definition | Collection Method | Expected Direction |
-|--------|------------|-------------------|-------------------|
-| Conversion Rate | [How calculated] | [Analytics tool] | ⬆️ Increase |
-| Click-through Rate | [How calculated] | [Analytics tool] | ⬆️ Increase |
+| Metric | Definition | Collection Method | Guardrail |
+|--------|------------|-------------------|-----------|
+| Bounce Rate | [How calculated] | [Analytics tool] | ⬇️ No increase >5% |
+| Page Load Time | [How calculated] | [Performance tool] | ➡️ No degradation |
 
 ### **v0.1.0 Beta**
 | Metric | Definition | Collection Method | Guardrail |
