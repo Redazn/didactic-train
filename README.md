@@ -21,10 +21,9 @@
 </p>
 
 ---
+## Deskripsi
 
-##  Deskripsi
----
-alat (toolkit) berbasis Python untuk analisis, perhitungan, dan pemrosesan data yang mudah digunakan dan dikembangkan. Framework AI yang bisa menyesuaikan persona, intensi, dan gaya komunikasi sesuai konteks pengguna dan industri.
+**Dictactic-train** (toolkit) berbasis Python untuk analisis, perhitungan, dan pemrosesan data yang mudah digunakan dan dikembangkan. Framework AI yang bisa menyesuaikan persona, intensi, dan gaya komunikasi sesuai konteks pengguna dan industri.
 ---
 
 ##  Fitur
