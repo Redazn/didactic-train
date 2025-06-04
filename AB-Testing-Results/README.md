@@ -70,8 +70,8 @@ v1.1.0 (Winner)      - Target Release: [Date]
 ### **v0.1.0 Beta**
 | Metric | Definition | Collection Method | Guardrail |
 |--------|------------|-------------------|-----------|
-| Bounce Rate | weight probabilities | tools | ⬇️ No increase >5% |
-| Page Load Time | weight probabilities | [Performance tool] | ➡️ No degradation |
+| Role weight | weight probabilities | tools | ⬇️ No increase >5% |
+| Dimension weight | weight probabilities | [Performance tool] | ➡️ No degradation |
 
 ### **Sample Size Calculation**
 ```
