@@ -61,13 +61,12 @@ v1.1.0 (Winner)      - Target Release: [Date]
 
 ## Data Collection
 
-### **Primary Metrics**
-| Metric | Definition | Collection Method | Expected Direction |
+### **Baseline generic | Definition | Collection Method | Expected Direction |
 |--------|------------|-------------------|-------------------|
 | Conversion Rate | [How calculated] | [Analytics tool] | ⬆️ Increase |
 | Click-through Rate | [How calculated] | [Analytics tool] | ⬆️ Increase |
 
-### **Secondary Metrics**
+### **v0.1.0 Beta**
 | Metric | Definition | Collection Method | Guardrail |
 |--------|------------|-------------------|-----------|
 | Bounce Rate | [How calculated] | [Analytics tool] | ⬇️ No increase >5% |
