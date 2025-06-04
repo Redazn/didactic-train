@@ -64,8 +64,8 @@ v1.1.0 (Winner)      - Target Release: [Date]
 ### **Baseline generic**
 | Metric | Definition | Collection Method | Guardrail |
 |--------|------------|-------------------|-----------|
-| Bounce Rate | [How calculated] | [Analytics tool] | ⬇️ No increase >5% |
-| Page Load Time | [How calculated] | [Performance tool] | ➡️ No degradation |
+| Role weight | [How calculated] | [Analytics tool] | ⬇️ No increase >5% |
+| Dimension weight | [How calculated] | [Performance tool] | ➡️ No degradation |
 
 ### **v0.1.0 Beta**
 | Metric | Definition | Collection Method | Guardrail |
