@@ -1,18 +1,15 @@
 import json
 import random
-import numpy as np
 
 class RoleSelector:
-    def __init__(self):
-        with open('config.json') as f:
-            self.config = json.load(f)
+    def __init__(self, config):  # Terima config sebagai parameter
+        self.config = config
     
     def select_role(self, entropy_level):
         """Pilih role berdasarkan entropy level"""
         role_weights = self.config['role_weights'][entropy_level]
         roles = self.config['roles']
         
-        # Pemilihan probabilistik
         selected_index = random.choices(
             range(len(roles)), 
             weights=role_weights, 
@@ -25,14 +22,12 @@ class RoleSelector:
         """Pilih kombinasi dimensi kognitif"""
         dim_config = self.config['dimension_weights'][entropy_level]
         
-        # Pemilihan Analytical/Emotive
         cognitive_style = random.choices(
             ['Analytical', 'Emotive'],
             weights=[dim_config['Analytical'], dim_config['Emotive']],
             k=1
         )[0]
         
-        # Pemilihan Structured/Exploratory
         processing_style = random.choices(
             ['Structured', 'Exploratory'],
             weights=[dim_config['Structured'], dim_config['Exploratory']],
