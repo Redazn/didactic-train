@@ -1,4 +1,5 @@
-import openai  # Untuk implementasi nyata
+import os
+from UncertaintyAnalyzer import UncertaintyAnalyzer
 
 class OutputGenerator:
     def __init__(self, role, cognitive_style, processing_style):
@@ -6,47 +7,92 @@ class OutputGenerator:
         self.cognitive_style = cognitive_style
         self.processing_style = processing_style
         
+ 
     def generate_prompt(self, input_text):
-        """Buat prompt berdasarkan role dan dimensi"""
+        """Generate system prompt untuk Gemini"""
         role_context = {
-            "Governance": "Anda adalah pakar tata kelola dan kebijakan",
+            "Governance": "Anda adalah pakar tata kelola dan kebijakan publik",
             "Artist": "Anda adalah seniman kreatif",
             "Doctor": "Anda adalah dokter medis profesional",
             "Teacher": "Anda adalah pendidik berpengalaman",
             "Philosopher": "Anda adalah filsuf kontemplatif",
             "Engineer": "Anda adalah insinyur teknis",
             "Scientific": "Anda adalah ilmuwan riset",
-            "Assistance": "Anda adalah asisten penolong"
+            "Assistance": "Anda adalah asisten AI yang membantu"
         }
         
         style_context = {
             "Analytical": "Gunakan pendekatan logis dan berbasis data",
             "Emotive": "Sertakan pertimbangan emosional dan empati",
-            "Structured": "Respons terstruktur dan sistematis (step by step)",
-            "Exploratory": "Eksplorasi berbagai kemungkinan kreatif (probability)"
+            "Structured": "Berikan respons yang terstruktur dan sistematis",
+            "Exploratory": "Eksplorasi berbagai kemungkinan dan perspektif"
         }
         
-        prompt = f"{role_context[self.role]}. {style_context[self.cognitive_style]}. "
-        prompt += f"{style_context[self.processing_style]}. "
-        prompt += f"Pertanyaan: {input_text}\nJawaban:"
+        system_prompt = f"""{role_context[self.role]}
+
+GAYA RESPONS:
+- {style_context[self.cognitive_style]}
+- {style_context[self.processing_style]}
+
+Pertanyaan: {input_text}
+
+Jawablah dalam bahasa Indonesia yang natural dan:
+1. Berikan jawaban utama yang informatif
+2. Akhiri dengan analisis ketidakpastian dan permintaan klarifikasi jika perlu
+"""
         
-        return prompt
-    
+        return system_prompt
+        
     def generate_output(self, input_text):
-        """Hasilkan output (simulasi untuk MVP)"""
-        # Dalam implementasi nyata: ganti dengan panggilan ke LLM
-        prompt = self.generate_prompt(input_text)
+        """Generate output menggunakan Gemini atau fallback"""
+        # Analisis ketidakpastian
+        uncertainty_analyzer = UncertaintyAnalyzer(input_text)
+        uncertainty_report = uncertainty_analyzer.get_uncertainty_report()
         
-        # Simulasi output berdasarkan role
+        if self.use_generator:
+            try:
+                prompt = self.generate_prompt(input_text)
+                response = self.model.generate_content(
+                    prompt,
+                    generation_config=self.generation_config
+                )
+                
+                if response.candidates and response.candidates[0].content.parts:
+                    output = response.candidates[0].content.parts[0].text.strip()
+                    return f"{output}\n\n{uncertainty_report}"
+                else:
+                    return f"Maaf, tidak dapat menghasilkan respons.\n\n{uncertainty_report}"
+                    
+            except Exception as e:
+                print(f"⚠️ Gemini API Error: {e}")
+                return self._fallback_response(input_text, uncertainty_report)
+        else:
+            return self._fallback_response(input_text, uncertainty_report)
+    
+    def _fallback_response(self, input_text, uncertainty_report):
+        """Fallback responses jika Gemini tidak tersedia"""
         responses = {
-            "Governance": "Kebijakan yang efektif memerlukan pendekatan berbasis bukti...",
-            "Artist": "Karya seni ini mengungkapkan emosi mendalam melalui...",
-            "Doctor": "Dari perspektif medis, gejala tersebut menunjukkan...",
-            "Teacher": "Konsep ini dapat diajarkan melalui tiga pendekatan utama...",
-            "Philosopher": "Pertanyaan ini menyentuh hakikat eksistensi manusia...",
-            "Engineer": "Solusi teknis optimal memerlukan analisis parameter berikut...",
-            "Scientific": "Berdasarkan penelitian terbaru, hipotesis yang mungkin...",
-            "Assistance": "Saya dapat membantu dengan beberapa opsi solusi..."
+            "Governance": f"Sebagai pakar tata kelola, saya akan menganalisis '{input_text}'...",
+            "Artist": f"Dari sudut pandang artistik, '{input_text}'...",
+            "Doctor": f"Secara medis, pertanyaan tentang '{input_text}'...",
+            "Teacher": f"Sebagai pendidik, saya akan menjelaskan '{input_text}'...",
+            "Philosopher": f"Pertanyaan '{input_text}' membawa kita pada refleksi...",
+            "Engineer": f"Dari perspektif teknis, '{input_text}'...",
+            "Scientific": f"Berdasarkan pendekatan ilmiah, '{input_text}'...",
+            "Assistance": f"Saya akan membantu menjawab '{input_text}'..."
         }
         
-        return responses.get(self.role, "Saya akan mencoba menjawab pertanyaan Anda.")
+        base_response = responses.get(self.role, f"Terima kasih atas pertanyaan tentang '{input_text}'.")
+        
+        # Add style-specific elements
+        if self.cognitive_style == 'Analytical':
+            base_response += " Mari kita analisis secara sistematis."
+        elif self.cognitive_style == 'Emotive':
+            base_response += " Mari kita pertimbangkan aspek emosionalnya."
+            
+        if self.processing_style == 'Structured':
+            base_response += " Saya akan menyajikan informasi secara terstruktur."
+        elif self.processing_style == 'Exploratory':
+            base_response += " Mari kita eksplorasi berbagai kemungkinan."
+            
+        return f"{base_response}\n\n{uncertainty_report}"
