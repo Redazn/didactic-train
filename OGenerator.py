@@ -1,14 +1,12 @@
 from UAnalyszer import UncertaintyAnalyzer
 
 class OutputGenerator:
-    """Modular output generator framework"""
     def __init__(self, role, cognitive_style, processing_style):
         self.role = role
         self.cognitive_style = cognitive_style
         self.processing_style = processing_style
-    
+
     def create_prompt(self, input_text):
-        """Create standardized prompt template"""
         role_context = {
             "Governance": "Anda adalah pakar tata kelola dan kebijakan publik",
             "Artist": "Anda adalah seniman kreatif",
@@ -26,7 +24,7 @@ class OutputGenerator:
             "Structured": "Berikan respons yang terstruktur dan sistematis",
             "Exploratory": "Eksplorasi berbagai kemungkinan dan perspektif"
         }
-        
+
         return f"""{role_context.get(self.role, 'Anda adalah asisten AI')}
 
 GAYA RESPONS:
@@ -39,29 +37,18 @@ Jawablah dalam bahasa Indonesia yang natural dan:
 1. Berikan jawaban utama yang informatif
 2. Akhiri dengan analisis ketidakpastian jika perlu
 """
-    
+
     def generate_output(self, input_text, model_generator):
-        """
-        Generate output using external model generator
-        
-        Parameters:
-        input_text (str): User input
-        model_generator (callable): Function that takes prompt and returns response
-        
-        Returns:
-        str: Complete output with uncertainty analysis
-        """
-        # Create prompt
         prompt = self.create_prompt(input_text)
         
-        # Generate response using external model
         try:
             response = model_generator(prompt)
         except Exception as e:
-            response = f"⚠️ Error in model generation: {str(e)}"
+            response = f"Error in model generation: {str(e)}"
         
-        # Add uncertainty analysis
-        uncertainty_analyzer = UncertaintyAnalyzer(input_text)
-        uncertainty_report = uncertainty_analyzer.get_uncertainty_report()
+        # Analisis ketidakpastian
+        uncertainty = UncertaintyAnalyzer.analyze_uncertainty(input_text)
+        normalized_uncertainty = UncertaintyAnalyzer.normalize_uncertainty(uncertainty)
+        uncertainty_report = f"\n\n[ANALISIS KETIDAKPASTIAN: {normalized_uncertainty:.2f}]"
         
-        return f"{response}\n\n{uncertainty_report}"
+        return response + uncertainty_report
