@@ -175,9 +175,9 @@ Proyek ini berlisensi yang memungkinkan pengguna untuk memodifikasi dan distribu
 
 ---
 
-## 🧠 Supported AI & Frameworks
+##  Supported AI & Frameworks
 
-| Framework       | Badge |
+| Framework       | amodel |
 |-----------------|--------|
 | Ollama          | ![Ollama](https://img.shields.io/badge/Ollama-121212?style=flat&logoColor=white) |
 | Llama.cpp       | ![llama.cpp](https://img.shields.io/badge/Llama.cpp-000000?style=flat&logoColor=white) |
