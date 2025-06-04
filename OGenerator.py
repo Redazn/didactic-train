@@ -1,4 +1,4 @@
-from UncertaintyAnalyzer import UncertaintyAnalyzer
+from UncertaintyAnalyszer import UncertaintyAnalyzer
 
 class OutputGenerator:
     """Modular output generator framework"""
