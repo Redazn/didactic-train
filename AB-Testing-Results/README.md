@@ -61,7 +61,8 @@ v1.1.0 (Winner)      - Target Release: [Date]
 
 ## Data Collection
 
-### **Baseline generic | Definition | Collection Method | Expected Direction |
+### **Baseline generic**
+| Definition | Collection Method | Expected Direction |
 |--------|------------|-------------------|-------------------|
 | Conversion Rate | [How calculated] | [Analytics tool] | ⬆️ Increase |
 | Click-through Rate | [How calculated] | [Analytics tool] | ⬆️ Increase |
