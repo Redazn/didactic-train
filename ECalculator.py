@@ -15,15 +15,15 @@ class EntropyCalculator:
         for count in char_counts.values():
             probability = count / text_length
             entropy -= probability * math.log2(probability)
-            
+        
         return entropy
-    
+
     @staticmethod
     def normalize_entropy(entropy, max_possible=8):
         """Normalisasi entropy ke skala 0-1"""
         normalized = entropy / max_possible
         return min(normalized, 1.0)
-    
+
     @staticmethod
     def get_entropy_level(normalized_entropy):
         """Kategorikan entropy ke dalam level"""
