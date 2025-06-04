@@ -1,15 +1,11 @@
 import re
-import math
-from collections import Counter
 
 class UncertaintyAnalyzer:
     @staticmethod
     def analyze_uncertainty(text):
         """Analisis ketidakpastian dengan metode yang lebih sederhana"""
-        # Tokenisasi sederhana tanpa Spacy
         tokens = re.findall(r'\b\w+\b', text.lower())
         
-        # Hitung ketidakpastian berdasarkan variasi kata
         if not tokens:
             return 0.0
             
