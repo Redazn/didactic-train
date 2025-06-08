@@ -173,7 +173,7 @@ Proyek ini berlisensi yang memungkinkan pengguna untuk memodifikasi dan distribu
 
 ---
 
-##  Supported AI & Frameworks
+##  We're compatible
 ![Ollama](https://img.shields.io/badge/Ollama-121212?style=flat&logoColor=white) 
 ![Llama.cpp](https://img.shields.io/badge/Llama.cpp-000000?style=flat&logoColor=white) 
 ![Transformers](https://img.shields.io/badge/Transformers-FFBF00?style=flat&logo=huggingface&logoColor=black) 
