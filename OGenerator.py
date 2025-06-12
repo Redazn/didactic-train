@@ -63,7 +63,7 @@ class OutputGenerator:
     def extract_key_meaning(self, text):
         """Ekstraksi makna kunci (sederhana)"""
         # Bisa ditingkatkan dengan teknik NLP
-        keywords = ["apa", "mengapa", "bagaimana", "kapan"]
+        keywords = ["apa", "siapa", "kenapa", "mengapa", "bagaimana", "kapan"]
         return " ".join([word for word in text.split() if word in keywords])
     
     def create_prompt(self, input_text, fused_meaning, emergence_index):
