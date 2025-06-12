@@ -1,88 +1,148 @@
-class HierarchicalMemoryStore:
+import numpy as np
+from scipy.spatial.distance import cosine
+
+class PFTCognitiveMemory:
     def __init__(self):
-        self.anomaly_memory = {}
-        self.game_memory = {}
-        self.symbolic_memory = {}
-        self.token_distributions = {}
-        
-    def update_token_distribution(self, task_type, tokens):
-        """Update token distribution for specific task type"""
-        if task_type not in self.token_distributions:
-            self.token_distributions[task_type] = {}
-            
-        for token in tokens:
-            self.token_distributions[task_type][token] = \
-                self.token_distributions[task_type].get(token, 0) + 1
-        
-        # Normalize
-        total = sum(self.token_distributions[task_type].values())
-        for token in self.token_distributions[task_type]:
-            self.token_distributions[task_type][token] /= total
-
-    def detect_anomaly(self, tokens):
-        """Detect anomaly based on token distribution"""
-        if not self.token_distributions.get('anomaly'):
-            return False  # Belum ada baseline
-            
-        anomaly_score = 0
-        for token in tokens:
-            expected = self.token_distributions['anomaly'].get(token, 0)
-            actual = tokens.count(token) / len(tokens)
-            anomaly_score += abs(expected - actual)
-            
-        return anomaly_score > 0.3  # Threshold empiris
-
-    def store_game_strategy(self, game_type, strategy, outcome):
-        """Store game theory strategy"""
-        if game_type not in self.game_memory:
-            self.game_memory[game_type] = []
-            
-        self.game_memory[game_type].append({
-            "strategy": strategy,
-            "outcome": outcome,
-            "token_distribution": self.calculate_token_distribution(strategy)
-        })
-        
-    def get_optimal_strategy(self, game_type):
-        """Retrieve best strategy based on historical outcomes"""
-        if game_type not in self.game_memory or not self.game_memory[game_type]:
+        self.short_term = {}  # Memori jangka pendek (konteks saat ini)
+        self.long_term = {}   # Memori jangka panjang (pengalaman)
+        self.theta_params = {'weight_STM': 0.6, 'weight_LTM': 0.4}
+        self.phi_threshold = 0.65  # Ambang integrasi
+    
+    def store_experience(self, key, experience):
+        """Menyimpan pengalaman ke memori jangka panjang"""
+        self.long_term[key] = {
+            'state': experience['state'],
+            'meaning': experience['meaning'],
+            'performance': experience['performance']
+        }
+    
+    def activate_context(self, context):
+        """Mengaktifkan konteks saat ini di memori jangka pendek"""
+        self.short_term = context
+    
+    def pft_fusion_operator(self):
+        """
+        Mengaplikasikan operator fusi PFT pada memori
+        Mengembalikan keadaan emergent
+        """
+        if not self.short_term or not self.long_term:
             return None
-            
-        # Cari strategi dengan outcome terbaik
-        best_strategy = max(self.game_memory[game_type], 
-                           key=lambda x: x['outcome'])
-        return best_strategy['strategy']
-    
-    def symbolic_reasoning(self, symbolic_expression):
-        """Manipulate symbolic expressions using token distribution"""
-        tokens = self.tokenize_symbolic(symbolic_expression)
-        normalized = []
         
-        for token in tokens:
-            # Manipulasi token berdasarkan distribusi historis
-            if token in self.token_distributions.get('symbolic', {}):
-                if self.token_distributions['symbolic'][token] > 0.1:
-                    normalized.append(token)
-            else:
-                normalized.append(token)
-                
-        return " ".join(normalized)
-    
-    def tokenize_symbolic(self, expression):
-        """Tokenize symbolic expressions"""
-        # Implementasi khusus untuk symbolic tasks
-        return re.findall(r'[a-zA-Z]+|\d+|\S', expression)
-    
-    def calculate_token_distribution(self, text):
-        """Calculate token distribution for text"""
-        tokens = re.findall(r'\w+', text.lower())
-        total = len(tokens)
-        dist = {}
+        # Temukan pengalaman paling relevan di LTM
+        ltm_key, ltm_experience = self.find_most_relevant()
         
-        for token in tokens:
-            dist[token] = dist.get(token, 0) + 1
+        # Hitung keselarasan semantik
+        alignment_score = self.calculate_semantic_alignment(
+            self.short_term['meaning'],
+            ltm_experience['meaning']
+        )
         
-        for token in dist:
-            dist[token] /= total
-            
-        return dist
+        # Hitung kekuatan interaksi
+        interaction_strength = 1 - cosine(
+            self.short_term['state'],
+            ltm_experience['state']
+        )
+        
+        # Hitung bobot fusi
+        alpha_STM = self.theta_params['weight_STM'] * alignment_score
+        alpha_LTM = self.theta_params['weight_LTM'] * alignment_score
+        beta = self.phi_threshold * interaction_strength
+        
+        # Normalisasi
+        total_weight = alpha_STM + alpha_LTM + beta
+        weights = {
+            'STM': alpha_STM / total_weight,
+            'LTM': alpha_LTM / total_weight,
+            'emergence': beta / total_weight
+        }
+        
+        # Fusi keadaan
+        fused_state = (
+            weights['STM'] * np.array(self.short_term['state']) +
+            weights['LTM'] * np.array(ltm_experience['state']) +
+            weights['emergence'] * self.semantic_interaction(
+                self.short_term['state'],
+                ltm_experience['state']
+            )
+        )
+        
+        return {
+            'state': fused_state.tolist(),
+            'meaning': self.coherent_meaning(
+                self.short_term['meaning'],
+                ltm_experience['meaning']
+            ),
+            'weights': weights,
+            'source': (id(self.short_term), ltm_key)
+        }
+    
+    def calculate_emergence_index(self, fused_state):
+        """
+        Menghitung indeks emergensi berdasarkan performa
+        """
+        stm_perf = self.evaluate_performance(self.short_term['state'])
+        ltm_perf = self.evaluate_performance(
+            self.long_term[self.find_most_relevant()[0]]['state']
+        )
+        fused_perf = self.evaluate_performance(fused_state['state'])
+        
+        max_individual = max(stm_perf, ltm_perf)
+        emergence_index = (fused_perf - max_individual) / max_individual
+        
+        # Simpan pengalaman emergen jika cukup signifikan
+        if emergence_index > 0.15:
+            self.store_experience(
+                key=f"emergent_{int(time.time())}",
+                experience={
+                    'state': fused_state['state'],
+                    'meaning': fused_state['meaning'],
+                    'performance': fused_perf
+                }
+            )
+        
+        return emergence_index
+    
+    def find_most_relevant(self):
+        """Mencari pengalaman paling relevan di LTM"""
+        best_key = None
+        best_score = -1
+        
+        for key, exp in self.long_term.items():
+            score = self.calculate_semantic_alignment(
+                self.short_term['meaning'],
+                exp['meaning']
+            )
+            if score > best_score:
+                best_score = score
+                best_key = key
+        
+        return best_key, self.long_term[best_key]
+    
+    def calculate_semantic_alignment(self, meaning_A, meaning_B):
+        """Menghitung keselarasan semantik antara dua makna"""
+        # Implementasi sederhana: cosine similarity dari embedding
+        return 1 - cosine(
+            self.get_embedding(meaning_A),
+            self.get_embedding(meaning_B)
+        )
+    
+    def semantic_interaction(self, state_A, state_B):
+        """Interaksi semantik menciptakan keadaan baru"""
+        # Operasi khusus domain - contoh untuk NLP
+        return (np.array(state_A) * np.array(state_B)) / (np.linalg.norm(state_A) * np.linalg.norm(state_B))
+    
+    def coherent_meaning(self, meaning_A, meaning_B):
+        """Menciptakan makna koheren dari dua input"""
+        # Gabungkan elemen unik dari kedua makna
+        combined = list(set(meaning_A.split() + meaning_B.split()))
+        return " ".join(sorted(combined))
+    
+    def get_embedding(self, text):
+        """Embedding teks sederhana (bisa diganti dengan model canggih)"""
+        # Implementasi dummy - dalam praktek gunakan model embedding
+        return np.random.rand(100)
+    
+    def evaluate_performance(self, state):
+        """Evaluasi performa keadaan (domain spesifik)"""
+        # Contoh: norm dari keadaan sebagai proxy performa
+        return np.linalg.norm(state)
