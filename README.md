@@ -226,7 +226,21 @@ Pada contoh di atas, fungsi `select_role` akan mengembalikan role dari daftar ro
 
 ### 7. UAnalyszer.py
 
-Modul utilitas untuk analisis lanjutan, melengkapi fungsi yang tidak ada di DAnalyzer.py namun tetap mendukung proses utama.
+Module ini menyediakan metode untuk menganalisis ketidakpastian dalam sebuah teks secara sederhana. Metode ini mengukur tingkat keragaman kata yang ada dalam teks, dengan membandingkan jumlah kata unik dengan total kata. Hasil perhitungan ini memberikan gambaran tentang "ketidakpastian" dalam teks, di mana nilai yang lebih tinggi menunjukkan variasi kata yang lebih banyak. Selain itu, modul ini menyediakanitur Utama:**
+- **analyze_uncertainty(text):**  
+  Menganalisis teks dengan cara mengekstrak kata-kata (token) menggunakan regular expression, kemudian menghitung rasio antara jumlah kata unik dan total kata. Jika tidak ada token yang ditemukan, maka fungsi mengembalikan nilai 0.0.
+  
+- **normalize_uncertainty(uncertainty):**  
+  Menormalkan nilai ketidakpastian yang diperoleh sehingga selalu berada dalam rentang 0 hingga 1, menggunakan fungsi pembatas.
+
+**Contoh Penggunaan:**
+
+```python
+from UAnalyszer import Uncertainty)
+```
+
+Dengan contoh di atas, Anda dapat mengukur sejauh mana suatu teks memiliki variasi kata dan memastikan nilai tersebut berada pada rentang yang konsisten untuk proses analisis selanjutnya.
+
 
 ---
 
