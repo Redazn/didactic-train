@@ -163,7 +163,58 @@ Penghasil output atau data baru berdasarkan hasil analisis. Output bisa berupa l
 
 ### 6. RSelector.py
 
-File ini berisi kelas RoleSelector yang bertujuan untuk memilih role dan kombinasi dimensi kognitif berdasarkan nilai entropy yang dihasilkan dari analisis. Proses seleksi menggunakan konfigurasi yang disediakan dalam bentuk dictionary, sehingga pemilihan role dan dimensi bersifat adaptif terhadap tingkat entropy yang diamati.
+File ini berisi kelas `RoleSelector` yang bertujuan untuk memilih role dan kombinasi dimensi kognitif berdasarkan nilai entropy yang dihasilkan dari analisis. Proses seleksi menggunakan konfigurasi yang disediakan dalam bentuk dictionary, sehingga pemilihan role dan dimensi bersifat adaptif terhadap tingkat entropy yang diamati.
+
+**Contoh Pemakaian:**
+
+Misalnya, jika konfigurasi `config` berbentuk seperti berikut:
+
+```python
+config = {
+    'roles': ['Leader', 'Support', 'Innovator'],
+    'role_weights': {
+        'low': [0.7, 0.2, 0.1],
+        'medium': [0.3, 0.5, 0.2],
+        'high': [0.1, 0.3, 0.6]
+    },
+    'dimension_weights': {
+        'low': {
+            'Analytical': 0.8,
+            'Emotive': 0.2,
+            'Structured': 0.9,
+            'Exploratory': 0.1
+        },
+        'medium': {
+            'Analytical': 0.5,
+            'Emotive': 0.5,
+            'Structured': 0.5,
+            'Exploratory': 0.5
+        },
+        'high': {
+            'Analytical': 0.2,
+            'Emotive': 0.8,
+            'Structured': 0.1,
+            'Exploratory': 0.9
+        }
+    }
+}
+```
+
+Anda dapat menggunakan kelas `RoleSelector` sebagai berikut:
+
+```python
+selector = RoleSelector(config)
+
+# Misalnya, jika level entropy 'medium':
+selected_role = selector.select_role('medium')
+selected_dimensions = selector.select_dimensions('medium')
+
+print("Role terpilih:", selected_role)
+print("Dimensi terpilih:", selected_dimensions)
+```
+
+Pada contoh di atas, fungsi `select_role` akan mengembalikan role dari daftar role yang dipilih secara acak berdasarkan bobot pada level 'medium', dan `select_dimensions` akan mengembalikan kombinasi dimensi kognitif sesuai dengan bobot yang ditentukan untuk level tersebut.
+
 
 ---
 
