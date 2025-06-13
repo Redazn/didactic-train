@@ -228,7 +228,7 @@ Pada contoh di atas, fungsi `select_role` akan mengembalikan role dari daftar ro
 
 Module ini menyediakan metode untuk menganalisis ketidakpastian dalam sebuah teks secara sederhana. Metode ini mengukur tingkat keragaman kata yang ada dalam teks, dengan membandingkan jumlah kata unik dengan total kata. Hasil perhitungan ini memberikan gambaran tentang "ketidakpastian" dalam teks, di mana nilai yang lebih tinggi menunjukkan variasi kata yang lebih banyak. Selain itu, modul ini menyediakan
 
--**Fitur Utama:**
+- **Fitur Utama:**
 
 - **`analyze_uncertainty(text)`:**  
   Menganalisis teks dengan cara mengekstrak kata-kata (token) menggunakan regular expression, kemudian menghitung rasio antara jumlah kata unik dan total kata. Jika tidak ada token yang ditemukan, maka fungsi mengembalikan nilai 0.0.
