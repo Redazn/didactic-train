@@ -163,7 +163,7 @@ Penghasil output atau data baru berdasarkan hasil analisis. Output bisa berupa l
 
 ### 6. RSelector.py
 
-Pemilihan subset data berdasarkan kriteria tertentu. Penting untuk filtering atau segmentasi data sebelum analisis lebih lanjut.
+File ini berisi kelas RoleSelector yang bertujuan untuk memilih role dan kombinasi dimensi kognitif berdasarkan nilai entropy yang dihasilkan dari analisis. Proses seleksi menggunakan konfigurasi yang disediakan dalam bentuk dictionary, sehingga pemilihan role dan dimensi bersifat adaptif terhadap tingkat entropy yang diamati.
 
 ---
 
