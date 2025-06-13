@@ -230,10 +230,10 @@ Module ini menyediakan metode untuk menganalisis ketidakpastian dalam sebuah tek
 
 - **Fitur Utama:**
 
-- **`analyze_uncertainty(text)`:**  
+  - **`analyze_uncertainty(text)`:**  
   Menganalisis teks dengan cara mengekstrak kata-kata (token) menggunakan regular expression, kemudian menghitung rasio antara jumlah kata unik dan total kata. Jika tidak ada token yang ditemukan, maka fungsi mengembalikan nilai 0.0.
   
-- **`normalize_uncertainty(uncertainty)`:**  
+  - **`normalize_uncertainty(uncertainty)`:**  
   Menormalkan nilai ketidakpastian yang diperoleh sehingga selalu berada dalam rentang 0 hingga 1, menggunakan fungsi pembatas.
 
 **Contoh Penggunaan:**
