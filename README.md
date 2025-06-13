@@ -82,7 +82,56 @@ Modul ini memungkinkan analisis tingkat lanjut terkait kompleksitas, kedalaman, 
 
 ### 4. HMemory.py
 
-Pengelolaan memori atau cache data sementara untuk efisiensi proses analisis, terutama saat menangani data besar atau proses berulang.
+File ini berisi kelas `PFTCognitiveMemory` yang disusun untuk mensimulasikan proses memori kognitif pada sistem AI, dengan penggabungan informasi dari memori jangka pendek (STM) dan jangka panjang (LTM).
+
+**Fitur utama:**
+
+- **Struktur Memori**
+  - `short_term`: Menyimpan konteks atau memori jangka pendek.
+  - `long_term`: Menyimpan pengalaman atau memori jangka panjang.
+  - `theta_params`: Parameter bobot untuk fusi memori (misal, perbandingan antara STM dan LTM).
+  - `phi_threshold`: Ambang nilai untuk integrasi fusi.
+
+- **Metode Utama**
+  - `store_experience(key, experience)`: Menyimpan pengalaman baru ke dalam LTM.
+  - `activate_context(context)`: Mengaktifkan atau mengisi memori jangka pendek dengan konteks saat ini.
+  - `pft_fusion_operator()`: Melakukan fusi antara STM dan LTM:
+    - Mencari pengalaman paling relevan dari LTM.
+    - Menghitung keselarasan semantik antara STM dan pengalaman LTM menggunakan cosine similarity.
+    - Menghitung kekuatan interaksi berdasarkan cosine similarity antar vektor state.
+    - Menghitung bobot fusi berdasarkan parameter dan skor interaksi.
+    - Menghasilkan state baru dengan kombinasi dari STM, LTM, dan perhitungan interaksi semantik.
+    - Mengembalikan dictionary berisi state yang telah difusikan, makna koheren, bobot fusi, dan sumber.
+  - `calculate_emergence_index(fused_state)`: Menghitung indeks emergensi berdasarkan perbandingan performa state; jika signifikan, hasil fusi disimpan sebagai pengalaman baru di LTM.
+  - `find_most_relevant()`: Mencari pengalaman LTM yang paling sesuai dengan konteks STM berdasarkan keselarasan semantik.
+  - `calculate_semantic_alignment(meaning_A, meaning_B)`: Menghitung keselarasan antara dua makna dengan cosine similarity dari vektor embedding.
+  - `semantic_interaction(state_A, state_B)`: Menghasilkan state baru melalui interaksi vektor (operasi perkalian dan normalisasi).
+  - `coherent_meaning(meaning_A, meaning_B)`: Menggabungkan dua input string menjadi satu makna koheren.
+  - `get_embedding(text)`: Menghasilkan embedding vektor untuk teks (contoh dummy, implementasi bisa disesuaikan).
+  - `evaluate_performance(state)`: Mengevaluasi performa suatu state, misalnya dengan menghitung norm vektor state.
+
+Contoh penggunaan:
+```python
+memory = PFTCognitiveMemory()
+
+# Set konteks memori jangka pendek
+memory.activate_context({
+    'state': [0.2, 0.4, 0.6],
+    'meaning': "analisis data kontemporer"
+})
+
+# Simpan pengalaman di LTM
+memory.store_experience("experience_1", {
+    'state': [0.1, 0.3, 0.5],
+    'meaning': "data historis",
+    'performance': 1.2
+})
+
+# Lakukan fusi
+fused_result = memory.pft_fusion_operator()
+print("Fused Result:", fused_result)
+```
+
 
 ---
 
