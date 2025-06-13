@@ -165,6 +165,12 @@ Penghasil output atau data baru berdasarkan hasil analisis. Output bisa berupa l
 
 File ini berisi kelas `RoleSelector` yang bertujuan untuk memilih role dan kombinasi dimensi kognitif berdasarkan nilai entropy yang dihasilkan dari analisis. Proses seleksi menggunakan konfigurasi yang disediakan dalam bentuk dictionary, sehingga pemilihan role dan dimensi bersifat adaptif terhadap tingkat entropy yang diamati.
 
+- **Fitur Utama:**  
+  Menyediakan mekanisme seleksi role dan kombinasi dimensi kognitif melalui kelas `RoleSelector`, yang:
+  - Memilih role berdasarkan tingkat entropy menggunakan konfigurasi bobot dari file konfigurasi.
+  - Memilih kombinasi dimensi kognitif (gaya kognitif dan gaya pemrosesan) secara acak sesuai bobot yang ditetapkan untuk setiap level entropy menggunakan metode probabilistik.
+
+
 **Contoh Pemakaian:**
 
 Misalnya, jika konfigurasi `config` berbentuk seperti berikut:
