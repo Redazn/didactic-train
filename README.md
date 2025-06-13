@@ -54,6 +54,14 @@ Kelas ini dapat digunakan untuk menyimulasikan bagaimana jenis gaya berpikir ter
 - **`get_constraint_description()`**: Menyusun deskripsi ringkas terkait keterbatasan berdasarkan dimensi.
 - **`apply_constraints(output_text)`**: Mensimulasikan penerapan keterbatasan pada output teks, misalnya mengganti frase sesuai gaya berpikir yang dipilih.
 
+Contoh penggunaan:
+```python
+analyzer = DimensionAnalyzer("Analytical", "Structured")
+print(analyzer.get_constraint_description())
+print(analyzer.apply_constraints("saya merasa data menunjukkan tren positif"))
+```
+
+
 ---
 
 ### 3. ECalculator.py
