@@ -46,11 +46,13 @@ File utama aplikasi. Menjalankan alur utama, mengatur input/output, membaca konf
 
 ### 2. DAnalyzer.py
 
-Kelas `DimensionAnalyzer` digunakan untuk menganalisis dan menerapkan keterbatasan berdasarkan dua dimensi psikologis: gaya kognitif (`cognitive_style`) dan gaya pemrosesan (`processing_style`).  
-Fitur utamanya:
-- Menentukan aspek-aspek yang menjadi keterbatasan dari kombinasi gaya.
-- Memberikan deskripsi keterbatasan pada output.
-- Mensimulasikan pengaruh keterbatasan pada teks keluaran AI.
+File ini berisi kelas utama `DimensionAnalyzer` yang berfungsi untuk menganalisis dan menerapkan keterbatasan (constraints) pada output berdasarkan dua dimensi psikologis: gaya kognitif (`cognitive_style`) dan gaya pemrosesan (`processing_style`).  
+Kelas ini dapat digunakan untuk menyimulasikan bagaimana jenis gaya berpikir tertentu mempengaruhi hasil keluaran AI.
+
+- **`__init__`**: Konstruktor yang menginisialisasi dua atribut gaya kognitif dan pemrosesan.
+- **`limitations` (property)**: Menghasilkan daftar keterbatasan berdasarkan kombinasi kedua gaya.
+- **`get_constraint_description()`**: Menyusun deskripsi ringkas terkait keterbatasan berdasarkan dimensi.
+- **`apply_constraints(output_text)`**: Mensimulasikan penerapan keterbatasan pada output teks, misalnya mengganti frase sesuai gaya berpikir yang dipilih.
 
 ---
 
