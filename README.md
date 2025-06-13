@@ -1,193 +1,162 @@
-<h1 align="center"><strong>Didactic Train</strong></h1>
 
----
+# didactic-train
 
-<p align="center">
-  <a href="https://github.com/Redazn/didactic-train/actions">
-    <img src="https://img.shields.io/github/actions/workflow/status/Redazn/didactic-train/python-app.yml?branch=main&logo=github&style=flat-square" alt="Build Status">
-  </a>
-  <a href="https://github.com/Redazn/didactic-train/blob/main/LICENSE">
-    <img src="https://img.shields.io/github/license/Redazn/didactic-train?style=flat-square" alt="License">
-  </a>
-  <a href="https://www.python.org/">
-    <img src="https://img.shields.io/badge/python-3.8%2B-blue?logo=python&style=flat-square" alt="Python Version">
-  </a>
-  <a href="https://github.com/Redazn/didactic-train/commits/main">
-    <img src="https://img.shields.io/github/last-commit/Redazn/didactic-train?style=flat-square" alt="Last Commit">
-  </a>
-  <a href="https://github.com/Redazn/didactic-train/stargazers">
-    <img src="https://img.shields.io/github/stars/Redazn/didactic-train?style=flat-square" alt="Stars">
-  </a>
-</p>
+## Deskripsi Proyek
 
----
-## Deskripsi
+**didactic-train** adalah proyek Python yang dirancang untuk analisis data, perhitungan statistik, pengelolaan memori, serta seleksi dan generasi output berdasarkan berbagai dimensi kognitif dan statistik. Proyek ini menyatukan beberapa modul yang dapat digunakan untuk kebutuhan riset, pengembangan AI, dan otomasi analitik.
 
-**Dictactic-train** (toolkit) berbasis Python untuk analisis, perhitungan, dan pemrosesan data yang mudah digunakan dan dikembangkan. Framework AI yang bisa menyesuaikan persona, intensi, dan gaya komunikasi sesuai konteks pengguna dan industri.
----
+## Fitur Utama
 
-##  Fitur
+- Analisis data berbasis dimensi psikologis dan statistik
+- Perhitungan entropy (kompleksitas/ketidakpastian) pada teks
+- Estimasi tingkat abstraksi dan kedalaman kognitif
+- Pengelolaan memori data sementara
+- Seleksi data otomatis sesuai kriteria tertentu
+- Generasi output/informasi berbasis hasil analisis
+- Contoh penggunaan dan konfigurasi mudah
 
-- Mudah dikembangkan (modular)
-- Pengaturan fleksibel lewat `config.json`
-- Dependensi minimal
-- Siap diintegrasikan dengan proses analisis data lain
-
----
-
-##  Struktur Direktori
+## Struktur Direktori
 
 ```
-.
+didactic-train/
+├── AB-Testing-Results/
 ├── DAnalyzer.py
 ├── ECalculator.py
+├── HMemory.py
 ├── OGenerator.py
 ├── RSelector.py
+├── UAnalyszer.py
 ├── config.json
+├── examples.py
 ├── main.py
 ├── requirements.txt
 ├── setup.py
-├── LICENSE
-├── README.md
-├── logo.png
-└── examples.py
+└── README.md
 ```
 
 ---
 
-##  Instalasi
+## Penjelasan Kode Per File
 
-1. **Clone repo:**
+### 1. main.py
+
+File utama aplikasi. Menjalankan alur utama, mengatur input/output, membaca konfigurasi, dan mengorkestrasi pemanggilan modul-modul lain.
+
+---
+
+### 2. DAnalyzer.py
+
+Kelas `DimensionAnalyzer` digunakan untuk menganalisis dan menerapkan keterbatasan berdasarkan dua dimensi psikologis: gaya kognitif (`cognitive_style`) dan gaya pemrosesan (`processing_style`).  
+Fitur utamanya:
+- Menentukan aspek-aspek yang menjadi keterbatasan dari kombinasi gaya.
+- Memberikan deskripsi keterbatasan pada output.
+- Mensimulasikan pengaruh keterbatasan pada teks keluaran AI.
+
+---
+
+### 3. ECalculator.py
+
+File ini berisi kelas `EntropyCalculator` dan sub-kelas `PFTFusion` yang berfokus pada perhitungan entropi (ukuran ketidakpastian atau kompleksitas) dari teks, serta estimator lanjutan seperti kedalaman kognitif dan tingkat abstraksi. Terdapat juga fitur integrasi "fusion" untuk penggabungan nilai berbasis meta-entropy.
+
+**Penjelasan fitur utama:**
+
+- **EntropyCalculator**
+  - `calculate_text_entropy(text)`: Menghitung entropy Shannon dari teks input untuk mengukur keragaman karakter.
+  - `normalize_entropy(entropy, max_possible=8)`: Mengubah nilai entropy ke skala 0–1 agar mudah dibandingkan atau divisualisasikan.
+  - `get_entropy_level(normalized_entropy)`: Mengkategorikan entropy menjadi "low", "medium", atau "high" untuk interpretasi sederhana.
+
+- **PFTFusion (sub-kelas)**
+  - Menyimpan histori entropy dan menghitung meta-entropy (entropy dari distribusi nilai entropy sebelumnya).
+  - `fuse(a, b)`: Melakukan penggabungan dua nilai dengan mempertimbangkan meta-entropy dan parameter temperatur.
+  - `dynamic_threshold()`: Menghasilkan threshold adaptif berdasarkan rata-rata bergerak dari histori entropy.
+
+- **Advanced Complexity Estimators**
+  - `estimate_cognitive_depth(text)`: Estimasi kedalaman kognitif berdasarkan kepadatan kata kunci kompleksitas seperti “mengapa”, “analisis”, “strategi”.
+  - `detect_abstraction_level(text)`: Mengukur tingkat abstraksi teks berdasarkan indikator linguistik abstrak (“konsep”, “prinsipnya”) dan konkret (“contoh”, “langkah”).
+
+Modul ini memungkinkan analisis tingkat lanjut terkait kompleksitas, kedalaman, dan abstraksi sebuah teks, serta mendukung proses pengambilan keputusan yang lebih adaptif dan informatif.
+
+---
+
+### 4. HMemory.py
+
+Pengelolaan memori atau cache data sementara untuk efisiensi proses analisis, terutama saat menangani data besar atau proses berulang.
+
+---
+
+### 5. OGenerator.py
+
+Penghasil output atau data baru berdasarkan hasil analisis. Output bisa berupa laporan, data terolah, atau format lain sesuai kebutuhan pengguna.
+
+---
+
+### 6. RSelector.py
+
+Pemilihan subset data berdasarkan kriteria tertentu. Penting untuk filtering atau segmentasi data sebelum analisis lebih lanjut.
+
+---
+
+### 7. UAnalyszer.py
+
+Modul utilitas untuk analisis lanjutan, melengkapi fungsi yang tidak ada di DAnalyzer.py namun tetap mendukung proses utama.
+
+---
+
+### 8. config.json
+
+File konfigurasi berisi parameter, path, dan pengaturan aplikasi. Dapat disesuaikan sesuai kebutuhan pengguna.
+
+---
+
+### 9. examples.py
+
+Contoh penggunaan setiap modul agar pengguna baru mudah memahami cara kerja dan integrasinya.
+
+---
+
+### 10. requirements.txt
+
+Daftar dependensi Python. Instalasi dengan:
+```bash
+pip install -r requirements.txt
+```
+
+---
+
+### 11. setup.py
+
+Skrip untuk instalasi dan distribusi sebagai package Python.
+
+---
+
+## Cara Instalasi & Penggunaan
+
+1. **Klon repositori:**
     ```bash
     git clone https://github.com/Redazn/didactic-train.git
     cd didactic-train
     ```
-2. **Install dependensi:**
+2. **Instal dependensi:**
     ```bash
     pip install -r requirements.txt
+    ```
+3. **Jalankan aplikasi:**
+    ```bash
+    python main.py
     ```
 
 ---
 
-##  Penggunaan Dasar
-
-Jalankan aplikasi utama:
-```bash
-python main.py
-```
-Anda dapat mengubah proses dan pengaturan lewat file `config.json`.
-
----
-
-##  Konfigurasi (`config.json`)
-
-File ini berisi pengaturan urutan dan parameter untuk setiap modul (bagian/fungsi aplikasi). Contoh:
-
-```json
-{
-  "pipeline": ["DAnalyzer", "ECalculator", "OGenerator"],
-  "DAnalyzer": {
-    "input_file": "data/input.csv",
-    "analysis_type": "summary"
-  },
-  "ECalculator": {
-    "operation": "mean",
-    "column": "value"
-  },
-  "OGenerator": {
-    "output_file": "data/output.json",
-    "format": "json"
-  }
-}
-```
-- **pipeline** = urutan modul yang dijalankan
-- **DAnalyzer, ECalculator, OGenerator** = pengaturan masing-masing modul
-
----
-
-##  Contoh Penggunaan Lengkap: `examples.py`
-
-untuk contoh penggunaan lengkap:
-
-- Menunjukkan langkah demi langkah penggunaan framework
-- Semua kode sudah diberi penjelasan dan dapat langsung dijalankan (misal di Google Colab/Jupyter Notebook)
-- Membandingkan hasil jawaban AI dengan dan tanpa framework
-
-### Isi File [examples.py](https://github.com/Redazn/didactic-train/blob/main/examples.py):
-
-
----
-
-### Cara Menjalankan Contoh (`examples.py`):
-
-1. **Buka Google Colab atau Jupyter Notebook** agar bisa menjalankan kode dengan perintah `!` dan `%`.
-2. **Masukkan API Key Gemini** pada bagian `GEMINI_API_KEY = "!!!!!!!!"`.
-3. **Jalankan satu per satu** kode dalam contoh, atau jalankan seluruh script.
-4. **Lihat hasilnya**: Anda akan melihat perbandingan output AI dengan framework (terstruktur, terarah) dan tanpa framework (jawaban biasa).
-
----
-
-##  Kontribusi
+## Kontribusi
 
 Kontribusi sangat terbuka!  
-Silakan fork repo ini, buat branch baru, tambahkan fitur/perbaikan, lalu ajukan pull request.
+Silakan fork, lakukan perubahan, dan buat pull request untuk penambahan fitur atau perbaikan bug. Pastikan kode telah diuji sebelum dikirim.
 
 ---
 
+## Lisensi
 
-###  **Kegunaan dan fungsi framework ini**
-
----
-
-
-1. **Domain-Specialized Output**  
-   - Contoh: Saat AI memilih role **Doctor** untuk pertanyaan medis, output jadi lebih teknis dan mengurangi resiko halusinasi  
-   - **Nilai**: Meningkatkan relevansi respons 40-60% dibanding AI generik
-
-2. **Resource Optimization**  
-   - Dengan membatasi dimensi (misal: nonaktifkan "Exploratory"), komputasi lebih efisien  
-   - **Data**: Pengurangan token usage 15-30% tanpa penurunan kualitas
-
-3. **User Experience Personalization**  
-   - Deteksi entropy user input → Sesuaikan gaya respons:  
-     ```mermaid
-     graph LR
-     A[Input Pendek/Sederhana] --> B[Role Teacher + Structured]
-     A[Input Panjang/Kompleks] --> C[Role Philosopher + Exploratory]
-     ```
-
-4. **Bias Mitigation**  
-   - Rotasi role otomatis cegah bias sistemik  
-   - Contoh: Pertanyaan politik tidak selalu dijawab role Governance, tapi bisa Scientific/Philosopher
-
-5. **Creative Problem Solving**  
-   - Kombinasi tak terduga (Artist + Scientific) hasilkan solusi inovatif  
-   - Demo: Solusi lingkungan dari sudut data teknis + metafora artistik
-
-
----
-
-##  Lisensi
-
-Proyek ini berlisensi yang memungkinkan pengguna untuk memodifikasi dan distribusi bebas, termasuk dalam keperluan edukasi, penelitian dan hobby, selama syarat Lisensi terpenuhi [LICENSE](https://github.com/Redazn/didactic-train/blob/main/LICENSE)
-
----
-
-##  We're compatible
-![Ollama](https://img.shields.io/badge/Ollama-121212?style=flat&logoColor=white) 
-![Llama.cpp](https://img.shields.io/badge/Llama.cpp-000000?style=flat&logoColor=white) 
-![Transformers](https://img.shields.io/badge/Transformers-FFBF00?style=flat&logo=huggingface&logoColor=black) 
-![Gemini](https://img.shields.io/badge/Gemini-4285F4?style=flat&logo=google&logoColor=white) 
-![OpenAI](https://img.shields.io/badge/OpenAI-412991?style=flat&logo=openai&logoColor=white) 
-![Microsoft](https://img.shields.io/badge/Microsoft-A4C639?style=flat&logo=microsoft&logoColor=white) 
-![LangChain](https://img.shields.io/badge/LangChain-00B15F?style=flat&logo=chainlink&logoColor=white)
-
----
-
-##  Terima Kasih
-
-Terima kasih telah menggunakan **didactic-train**!  
-Jangan lupa kasih ⭐ jika bermanfaat!
+Proyek ini dilisensikan di bawah [MIT License](LICENSE).
 
 ---
 
