@@ -86,6 +86,18 @@ File ini berisi kelas `EntropyCalculator` dan sub-kelas `PFTFusion` yang berfoku
 
 Modul ini memungkinkan analisis tingkat lanjut terkait kompleksitas, kedalaman, dan abstraksi sebuah teks, serta mendukung proses pengambilan keputusan yang lebih adaptif dan informatif.
 
+Contoh penggunaan:
+```python
+entropy = EntropyCalculator.calculate_text_entropy("Contoh teks untuk analisis")
+normalized = EntropyCalculator.normalize_entropy(entropy)
+print("Entropy Level:", EntropyCalculator.get_entropy_level(normalized))
+
+fusion = EntropyCalculator.PFTFusion(temperature=0.5, window_size=10)
+fused_value = fusion.fuse(0.8, 0.3)
+print("Fused Value:", fused_value)
+```
+
+
 ---
 
 ### 4. HMemory.py
