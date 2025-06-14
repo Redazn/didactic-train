@@ -1,6 +1,6 @@
 
 ## SYA(Sedyatama)
-**`Adaptive Multi-role switching`**
+**`Adaptive Multi-role based optimization`**
 
 ---
 
