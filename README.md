@@ -252,9 +252,9 @@ Dengan contoh di atas, Anda dapat mengukur sejauh mana suatu teks memiliki varia
 
 ### 8. config.json
 
-- Entropy dihitung dari pertanyaan pengguna = ukuran kompleksitas dan ketidakpastian.
+- Entropy dihitung dari pertanyaan pengguna (ukuran kompleksitas dan ketidakpastian).
 - Berdasarkan ukuran tersebut, peran dan aspek kepribadian role dan dimensi dipilih secara acak sesuai bobot.
-- Hasilnya: role dan dimensi dapat menyesuaikan jawaban distribusi token seperti karakter dan gayanya sesuai konteks percakapan.
+- Hasilnya, Role dan dimensi dapat menyesuaikan jawaban distribusi token seperti karakter dan gayanya sesuai konteks percakapan.
 
 ---
 
