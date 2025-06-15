@@ -260,61 +260,38 @@ Dengan contoh di atas, Anda dapat mengukur sejauh mana suatu teks memiliki varia
 
 ### 9. Pola interaksi modul
 
-[Start]
-  |
-  v
-main.py (Inisialisasi Sistem)
-  |
-  |--> Baca config.json
-  |
-  |--> Inisialisasi Modul:
-       |-- ECalculator
-       |-- RSelector
-       |-- DAnalyzer
-       |-- HMemory
-       |-- UAnalyszer
-       |
-  v
-[Input Pengguna]
-  |
-  v
-ECalculator.py (Hitung Entropi)
-  |
-  |--> Normalisasi Entropi
-  |--> Tentukan Level (Low/Medium/High)
-  |
-  v
-RSelector.py (Pilih Role & Dimensi)
-  |
-  |--> Pilih role berdasarkan bobot entropi
-  |--> Pilih cognitive_style & processing_style
-  |
-  v
-DAnalyzer.py (Terapkan Constraints)
-  |
-  |--> Generate keterbatasan output
-  |--> Siapkan aturan gaya respons
-  |
-  v
-HMemory.py (Fusi Memori Kognitif)
-  |     |
-  |     |--> UAnalyszer (Hitung Uncertainty)
-  |     |
-  |     v
-  |--> Active Context (STM)
-  |--> Retrieve Experience (LTM)
-  |--> Semantic Alignment
-  |--> PFT Fusion Operator
-  |--> Hitung Emergence Index
-  |
-  v
-OGenerator.py (Buat Output)
-  |
-  |--> Terapkan hasil fusi memori
-  |--> Terapkan constraints dimensi
-  |
-  v
-[Output Akhir]
+graph TD
+    A[main.py] -->|Baca Konfigurasi| B[config.json]
+    A -->|Inisialisasi| C[ECalculator.py]
+    A -->|Inisialisasi| D[RSelector.py]
+    A -->|Inisialisasi| E[DAnalyzer.py]
+    A -->|Inisialisasi| F[HMemory.py]
+    A -->|Inisialisasi| G[UAnalyszer.py]
+    
+    subgraph Alur Pemrosesan
+        H[Input Pengguna] --> I
+        I[ECalculator.py] -->|Hitung Entropi| J[RSelector.py]
+        J -->|Pilih Role| K[DAnalyzer.py]
+        J -->|Pilih Dimensi| K
+        K -->|Terapkan Constraints| L[HMemory.py]
+        G[UAnalyszer.py] -->|Analisis Ketidakpastian| L
+        L -->|Fusi STM/LTM| M[OGenerator.py]
+        M -->|Hasil Akhir| N[Output Sistem]
+    end
+
+    Z[examples.py] -.Contoh Penggunaan.-> A
+    Z -.-> I
+    Z -.-> J
+    Z -.-> K
+    Z -.-> L
+    Z -.-> M
+    
+    style A fill:#4CAF50,stroke:#388E3C
+    style I fill:#2196F3,stroke:#0D47A1
+    style J fill:#FFC107,stroke:#FF8F00
+    style K fill:#9C27B0,stroke:#6A1B9A
+    style L fill:#F44336,stroke:#D32F2F
+    style M fill:#009688,stroke:#00695C
 
 ---
 
