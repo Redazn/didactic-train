@@ -294,6 +294,16 @@ graph TD
     style L fill:#F44336,stroke:#D32F2F
     style M fill:#009688,stroke:#00695C
 ```
+### 12
+
+   ```mermaid
+   graph LR
+       EC[ECalculator] -->|Entropy Level| RS[RSelector]
+       RS -->|Role & Dimensi| DA[DAnalyzer]
+       DA -->|Constraints| HM[HMemory]
+       UA[UAnalyszer] -->|Uncertainty| HM
+       HM -->|Fused State| OG[OGenerator]
+   ```
 
 ---
 
