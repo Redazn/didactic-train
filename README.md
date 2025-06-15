@@ -260,20 +260,61 @@ Dengan contoh di atas, Anda dapat mengukur sejauh mana suatu teks memiliki varia
 
 ### 9. Pola interaksi modul
 
-sequenceDiagram
-    participant Main
-    participant RSelector
-    participant ECalculator
-    participant DAnalyzer
-    participant HMemory
-    participant OGenerator
-
-    Main->>ECalculator: Hitung entropy input
-    ECalculator->>RSelector: Feed entropy level
-    RSelector->>DAnalyzer: Pilih dimensi kognitif
-    DAnalyzer->>HMemory: Terapkan constraints
-    HMemory->>+OGenerator: Hasil fusi STM-LTM
-    OGenerator-->>-Main: Output final
+[Start]
+  |
+  v
+main.py (Inisialisasi Sistem)
+  |
+  |--> Baca config.json
+  |
+  |--> Inisialisasi Modul:
+       |-- ECalculator
+       |-- RSelector
+       |-- DAnalyzer
+       |-- HMemory
+       |-- UAnalyszer
+       |
+  v
+[Input Pengguna]
+  |
+  v
+ECalculator.py (Hitung Entropi)
+  |
+  |--> Normalisasi Entropi
+  |--> Tentukan Level (Low/Medium/High)
+  |
+  v
+RSelector.py (Pilih Role & Dimensi)
+  |
+  |--> Pilih role berdasarkan bobot entropi
+  |--> Pilih cognitive_style & processing_style
+  |
+  v
+DAnalyzer.py (Terapkan Constraints)
+  |
+  |--> Generate keterbatasan output
+  |--> Siapkan aturan gaya respons
+  |
+  v
+HMemory.py (Fusi Memori Kognitif)
+  |     |
+  |     |--> UAnalyszer (Hitung Uncertainty)
+  |     |
+  |     v
+  |--> Active Context (STM)
+  |--> Retrieve Experience (LTM)
+  |--> Semantic Alignment
+  |--> PFT Fusion Operator
+  |--> Hitung Emergence Index
+  |
+  v
+OGenerator.py (Buat Output)
+  |
+  |--> Terapkan hasil fusi memori
+  |--> Terapkan constraints dimensi
+  |
+  v
+[Output Akhir]
 
 ---
 
