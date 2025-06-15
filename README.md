@@ -258,9 +258,22 @@ Dengan contoh di atas, Anda dapat mengukur sejauh mana suatu teks memiliki varia
 
 ---
 
-### 9. examples.py
+### 9. Pola interaksi modul
 
-Contoh penggunaan setiap modul agar pengguna baru mudah memahami cara kerja dan integrasinya.
+sequenceDiagram
+    participant Main
+    participant RSelector
+    participant ECalculator
+    participant DAnalyzer
+    participant HMemory
+    participant OGenerator
+
+    Main->>ECalculator: Hitung entropy input
+    ECalculator->>RSelector: Feed entropy level
+    RSelector->>DAnalyzer: Pilih dimensi kognitif
+    DAnalyzer->>HMemory: Terapkan constraints
+    HMemory->>+OGenerator: Hasil fusi STM-LTM
+    OGenerator-->>-Main: Output final
 
 ---
 
