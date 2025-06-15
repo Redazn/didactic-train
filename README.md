@@ -260,7 +260,8 @@ Dengan contoh di atas, Anda dapat mengukur sejauh mana suatu teks memiliki varia
 
 ### 9. Pola interaksi modul
 
-```graph TD
+```mermaid
+graph TD
     A[main.py] -->|Baca Konfigurasi| B[config.json]
     A -->|Inisialisasi| C[ECalculator.py]
     A -->|Inisialisasi| D[RSelector.py]
