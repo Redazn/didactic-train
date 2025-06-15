@@ -291,7 +291,8 @@ Dengan contoh di atas, Anda dapat mengukur sejauh mana suatu teks memiliki varia
     style J fill:#FFC107,stroke:#FF8F00
     style K fill:#9C27B0,stroke:#6A1B9A
     style L fill:#F44336,stroke:#D32F2F
-    style M fill:#009688,stroke:#00695C```
+    style M fill:#009688,stroke:#00695C
+```
 
 ---
 
