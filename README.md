@@ -260,6 +260,7 @@ Dengan contoh di atas, Anda dapat mengukur sejauh mana suatu teks memiliki varia
 
 ### 9. Pola interaksi modul
 
+**Inti Sistem**
 ```mermaid
 graph TD
     A[main.py] -->|Baca Konfigurasi| B[config.json]
@@ -294,8 +295,7 @@ graph TD
     style L fill:#F44336,stroke:#D32F2F
     style M fill:#009688,stroke:#00695C
 ```
-### 12
-
+**Alur Pemrosesan**
    ```mermaid
    graph LR
        EC[ECalculator] -->|Entropy Level| RS[RSelector]
