@@ -6,7 +6,7 @@
 
 ## Deskripsi Proyek
 
-**SYA** adalah proyek Python yang dirancang untuk analisis data, perhitungan statistik, pengelolaan memori, serta seleksi dan generasi output berdasarkan berbagai dimensi kognitif dan statistik. Proyek ini menyatukan beberapa modul yang dapat digunakan untuk kebutuhan riset, pengembangan AI, dan otomasi analitik.
+Proyek Python yang dirancang untuk analisis data, perhitungan statistik, pengelolaan memori, serta seleksi dan generasi output berdasarkan berbagai dimensi kognitif dan statistik. Proyek ini menyatukan beberapa modul yang dapat digunakan untuk kebutuhan riset, pengembangan AI, dan otomasi analitik.
 
 ## Fitur Utama
 
